@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Unit 2 Assessment Prep</title>
+    <title>Unit 2 Assessment</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Car Collection</h1>
-    <% if (cars.length) { %>
-      <% cars.forEach(function(car, idx) { %>
+    <h1>To Do List</h1>
+    <% if (todos.length) { %>
+      <% todos.forEach(function(todo, idx) { %>
         <hr>
         <article>
-          <p>Make: <%= car.make %></p>
-          <p>Model: <%= car.model %></p>
-          <p>Full Tank?: <%= car.fullTank ? 'Full' : 'Empty' %></p>
-          <form action="/cars/<%= idx %>?_method=DELETE" method="POST">
-            <button type="submit">DELETE CAR</button>
+          <form action="/todos/<%= idx %>?_method=DELETE" method="POST">
+            <button type="submit">DELETE</button>
           </form>
         </article>
       <% }) %>
     <% } else { %>
-      <h2>There are no Cars in your collection yet!</h2>
+      <h2>There are no To Dos yet!</h2>
     <% } %>
-    <form action="/cars" method="POST">
-      <input name="make" placeholder="Make" type="text">
+    <form action="/todos" method="POST">
       <input name="model" placeholder="Model" type="text">
-      <button type="submit">ADD CAR</button>
+      <button type="submit">ADD TO DO</button>
     </form>
   </body>
 </html>
